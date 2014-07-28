@@ -1,0 +1,11 @@
+<li>
+  <span class="content"> 
+  <h5>Title: <%= entry.title %></h5>
+  </span> 
+  <span class="content"> 
+  <h5>Content: </h5><%= entry.content %></span>
+
+  <span class="timestamp">
+    Posted <%= time_ago_in_words(entry.created_at) %> ago.
+  </span>
+</li>
