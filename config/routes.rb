@@ -8,7 +8,9 @@ Rails.application.routes.draw do
   resources :relationships, only: [:create, :destroy]
   resources :sessions, only: [:new, :create, :destroy]
   resources :entries, only: [:create , :show ]
+  resources :comments, only: [:create , :show ]
   root  'static_pages#home'
+  match '/show',  to: 'comments#show',        via: 'get'
   match '/signup',  to: 'users#new',            via: 'get'
   match '/signin',  to: 'sessions#new',         via: 'get'
   match '/signout', to: 'sessions#destroy',     via: 'delete'
