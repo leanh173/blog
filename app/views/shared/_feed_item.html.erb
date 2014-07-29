@@ -7,8 +7,9 @@
   	<h5><%= link_to feed_item.title, feed_item %></h5>
   </span>
   <span class="content">
-  <%= truncate(feed_item.content,length: 55, separator: ' ') %></span>
+  	<%= truncate(feed_item.content,length: 55, separator: ' ') %>
+  	</span>
   <span class="timestamp">
-    Posted <%= time_ago_in_words(feed_item.created_at) %> ago.
+    Posted <%= time_ago_in_words(feed_item.created_at) %> ago. / at <%=time_tag(feed_item.created_at)%>
   </span>
 </li>

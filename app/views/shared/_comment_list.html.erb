@@ -10,7 +10,7 @@
       <%= comment_user.comment_content %>
     </li>
     <span class="timestamp">
-    	Posted <%= time_ago_in_words(comment_user.created_at) %> ago.
+    	Posted <%= time_ago_in_words(comment_user.created_at) %> ago. / at <%=time_tag(comment_user.created_at)%>
   	</span>
   <% end %>
   <%= will_paginate @commentlist %>

@@ -1,18 +1,25 @@
 class CommentsController < ApplicationController
   before_action :signed_in_user, only: [:create]
-
+  before_action :following_user, only: [:create]
   def create 
-  	@comment = current_user.comments.build(comment_params)
-  	if @comment.save
+	if @comment.save
       flash[:success] = "Comment posted!"
-      redirect_to @comment.entry
-    else
-      flash[:error] = "Comment can not be posted!"
-      redirect_to @comment.entry
-    end
+	  redirect_to @comment.entry
+	else
+	  flash[:error] = "Comment can not be posted! Make sure your comment is not blank"
+	  redirect_to @comment.entry
+	end
   end
 
   def destroy
+  end
+
+  def following_user
+  	@comment = current_user.comments.build(comment_params)
+    unless current_user.following? @comment.entry.user
+      flash[:error] = "Comment can not be posted! please follow Author to comment this post" 
+	  redirect_to @comment.entry
+    end
   end
 
   private
