@@ -4,6 +4,7 @@
 <%= will_paginate @commentlist %>
   <% @commentlist.each do |comment_user| %>
     <li>
+    <%= link_to gravatar_for(current_user, size: 52), current_user %>
       <h5><%= comment_user.user.name %>:</h5>
       <br>
       <%= comment_user.comment_content %>
