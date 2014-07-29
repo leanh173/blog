@@ -11,10 +11,11 @@ class EntriesController < ApplicationController
   def create
   	 @entry = current_user.entries.build(entry_params)
     if @entry.save
-      flash[:success] = "Micropost created!"
+      flash[:success] = "Entry created!"
       redirect_to root_url
     else
-      render 'static_pages/home'
+      flash[:error] = "Title/Entry error!"
+      redirect_to new_entry_path
     end
   end
 

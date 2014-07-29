@@ -7,7 +7,8 @@ class CommentsController < ApplicationController
       flash[:success] = "Comment posted!"
       redirect_to @comment.entry
     else
-      render 'static_pages/home'
+      flash[:error] = "Comment can not be posted!"
+      redirect_to @comment.entry
     end
   end
 
