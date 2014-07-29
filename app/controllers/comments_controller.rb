@@ -7,7 +7,7 @@ class CommentsController < ApplicationController
       flash[:success] = "Comment posted!"
       redirect_to @comment.entry
     else
-      flash[:error] = "Comment can not be posted!"
+      flash[:error] = "Comment can not be posted,please make sure it can not be blank!"
       redirect_to @comment.entry
     end
   end

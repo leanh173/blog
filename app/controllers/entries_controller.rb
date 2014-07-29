@@ -14,7 +14,8 @@ class EntriesController < ApplicationController
       flash[:success] = "Entry created!"
       redirect_to root_url
     else
-      flash[:error] = "Title/Entry error!"
+      flash[:error] = "Title/Entry error, please make sure they can not be blank !"
+      
       redirect_to new_entry_path
     end
   end
