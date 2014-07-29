@@ -1,7 +1,7 @@
 <h4>Comment list:</h4>
-<% @commentlis = @entry.comments %>
+<% @commentlist = @entry.comments.paginate(page: params[:page],per_page: 5) %>
 <ul class="users">
-  <% @commentlis.each do |comment_user| %>
+  <% @commentlist.each do |comment_user| %>
     <li>
       <h5><%= comment_user.user.name %>:</h5>
       <br>
@@ -11,4 +11,5 @@
     	Posted <%= time_ago_in_words(comment_user.created_at) %> ago.
   	</span>
   <% end %>
+  <%= will_paginate @commentlist %>
 </ul>

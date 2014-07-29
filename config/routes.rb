@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   end
   resources :relationships, only: [:create, :destroy]
   resources :sessions, only: [:new, :create, :destroy]
-  resources :entries, only: [:create , :show ]
+  resources :entries, only: [:create , :show , :new]
   resources :comments, only: [:create , :show ]
   root  'static_pages#home'
   match '/show',  to: 'comments#show',        via: 'get'

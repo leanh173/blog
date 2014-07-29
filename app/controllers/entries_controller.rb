@@ -1,7 +1,11 @@
 class EntriesController < ApplicationController
-  before_action :signed_in_user, only: [:create]
+  before_action :signed_in_user, only: [:create,:new]
 
   def index
+  end
+
+  def new
+  	@entry = Entry.new
   end
 
   def create

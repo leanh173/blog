@@ -1,0 +1,11 @@
+<div class="center hero-unit">
+    <h1>New Entry</h1>
+<%= form_for(@entry) do |f| %>
+  <%= render 'shared/error_messages', object: f.object %>
+  <div class="field">
+  	<%= f.text_field :title, placeholder: "Title" %>
+    <%= f.text_area :content, placeholder: "Compose new entry...",:size => "30x20" %>
+  </div>
+  <%= f.submit "Post", class: "btn btn-large btn-primary" %>
+<% end %>
+</div>
